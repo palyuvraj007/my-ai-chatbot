@@ -5,7 +5,7 @@ import time
 
 # --- 1. Initialize the Google GenAI Client ---
 # REPLACE THIS WITH YOUR SEED API KEY FROM GOOGLE AI STUDIO
-API_KEY = "AQ.Ab8RN6L0e0YF6w7gnfzPvDRUjFWMmxFSuQkJKtyMYeH-cfaddA"
+API_KEY=st.secrets["GEMINI_API_KEY"]
 
 try:
     client = genai.Client(api_key=API_KEY)
