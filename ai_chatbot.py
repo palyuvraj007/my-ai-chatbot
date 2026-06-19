@@ -7,13 +7,20 @@ import time
 # REPLACE THIS WITH YOUR SEED API KEY FROM GOOGLE AI STUDIO
 API_KEY=st.secrets["GEMINI_API_KEY"]
 
+# --- 1. Initialize the Google GenAI Client ---
 try:
+    # Safely fetch the key from the cloud vault
+    API_KEY = st.secrets["GEMINI_API_KEY"]
+    
+    # DEBUG CHECK: Show a safe snippet of the key in the sidebar to verify it's loading
+    if API_KEY:
+        st.sidebar.success(f"🔑 Key Loaded: {API_KEY[:6]}...{API_KEY[-4:]}")
+    else:
+        st.sidebar.error("❌ Key is empty!")
+        
     client = genai.Client(api_key=API_KEY)
 except Exception as e:
-    st.error(f"Failed to initialize AI Client. Check your API Key setup! Error: {e}")
-
-# --- 2. Advanced Premium UI Styling ---
-st.set_page_config(page_title="ELECTRO AI", page_icon="⚡", layout="centered")
+    st.error(f"Failed to initialize AI Client. Check your Secrets vault setup! Error: {e}")
 
 st.markdown("""
     <style>
