@@ -86,7 +86,7 @@ if "ai_messages" not in st.session_state:
         st.session_state.ai_messages.append({"role": "model", "content": initial_greeting})
     except Exception as e:
         # Fallback greeting if the initial API call fails
-        st.session_state.ai_messages.append({"role": "model", "content": "Hey there! Ready to get started?"})
+        st.session_state.ai_messages.append({"role": "model", "content": "Hey Buddy what's happening😙"})
 
 # Display the messages from history log
 for message in st.session_state.ai_messages:
